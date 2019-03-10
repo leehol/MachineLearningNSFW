@@ -1,0 +1,51 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+    complete:
+        format: "[%(asctime)s] [%(processName)s] %(name)s:%(funcName)s:%(lineno)d [%(levelname)s] %(message)s"
+    simple:
+        format: "[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s"
+    test:
+        format: "[%(asctime)s] [%(levelname)s] [%(module)s.%(funcName)s:%(lineno)d] %(message)s"
+handlers:
+    console_complete:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: complete
+        stream: ext://sys.stdout
+    console_simple:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: simple
+        stream: ext://sys.stdout
+    console_test:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: test
+        stream: ext://sys.stdout
+
+loggers:
+    gb:
+        level: DEBUG
+        handlers: [console_test]
+        propagate: no
+    rest_service:
+        level: DEBUG
+        handlers: [console_test]
+        propagate: no
+    handlers:
+        level: DEBUG
+        handlers: [console_complete]
+        propagate: no
+    business_logics:
+        level: DEBUG
+        handlers: [console_complete]
+        propagate: no
+    storage_layer:
+        level: DEBUG
+        handlers: [console_complete]
+        propagate: no
+    __main__:
+        level: DEBUG
+        handlers: [console_test]
+        propagate: no
