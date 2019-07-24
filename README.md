@@ -12,7 +12,7 @@ Endpoint is /video_check
 Query string will search for "video_link" in the html body and a URL to an mp4 file after that... example:  
 ```{"video_link": "sample.mp4"}```
 
-# Return Codes
+# Return Codes for Content
 1  -- clean content  
 0  -- nsfw content  
 -1 -- ambiguous; manual review is required
